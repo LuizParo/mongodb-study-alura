@@ -1,3 +1,5 @@
+db.createCollection("alunos")
+
 db.alunos.insert(
     {
         "nome" : "Felipe",
