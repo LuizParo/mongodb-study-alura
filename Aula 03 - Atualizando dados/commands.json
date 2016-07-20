@@ -1,0 +1,56 @@
+db.alunos.insert({
+    "nome" : "Luiz Guilherme Paro",
+    "curso" : {
+        "nome" : "Administração"
+    }
+})
+
+db.alunos.update(
+    {
+        "_id" : ObjectId("578d58281bd91ffdf63cbf0f")
+    },
+    {
+        "nome" : "Luiz Guilherme Paro",
+        "curso" : {
+            "nome" : "Sistemas de Informação"
+        }
+    }
+)
+
+db.alunos.update({
+    "_id" : ObjectId("578c1b393b4af162ee8f3c24")
+}, {
+    $set : {
+        "curso" : {
+            "nome" : "Matemática"
+        }
+    }
+})
+
+db.alunos.update({
+    "curso.nome" : "Ciência da Computação"
+}, {
+    "$set" : {
+        "curso.nome" : "Sistemas de Informação"
+    }, {
+        "multi" : true
+    }
+})
+
+db.alunos.update({
+    "nome" : "Felipe"
+}, {
+    $push :  {
+        "notas" : "8.5"
+    }
+})
+
+db.alunos.update({
+    "nome" : "Felipe"
+}, {
+    $push :  {
+        "notas" : {
+            $each : ["8.5", "7.5"]
+        }
+    }
+})

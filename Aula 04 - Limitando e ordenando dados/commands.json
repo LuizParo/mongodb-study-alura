@@ -1,0 +1,11 @@
+db.alunos.find({
+    "notas" : {
+        $lt : "5"
+    }
+})
+
+db.alunos.findOne({
+    "curso.nome" : "Sistemas de Informação"
+})
+
+db.alunos.find().sort({"nome" : 1})

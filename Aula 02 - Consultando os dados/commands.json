@@ -1,0 +1,25 @@
+db.alunos.find({
+    "nome" : "Felipe"
+}).pretty()
+
+db.alunos.find({
+    "nome" : "Felipe",
+    "dataNascimento" : new Date(1994, 02, 26)
+}).pretty()
+
+db.alunos.find({
+    "habilidade.nome" : "inglês"
+}).pretty()
+
+db.alunos.find({
+    $or : [
+        {"curso.nome": "Sistemas de informação"},
+        {"curso.nome": "Ciências da computação"}
+    ]
+}).pretty()
+
+db.alunos.find({
+    "curso.nome" : {
+        $in : ["Sistemas de informação", "Ciências da computação"]
+    }
+}).pretty()
